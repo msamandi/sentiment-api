@@ -1,0 +1,4 @@
+com/example/sentiment/controller/SentimentController.class
+com/example/sentiment/SentimentApiApplication.class
+com/example/sentiment/service/SentimentService.class
+com/example/sentiment/model/ReviewRequest.class
