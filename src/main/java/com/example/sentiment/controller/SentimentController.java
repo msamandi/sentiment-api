@@ -20,4 +20,8 @@ public class SentimentController {
 
         return ResponseEntity.ok(sentiment);
     }
+    @GetMapping("/custom-health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("OK");
+    }
 }
