@@ -37,9 +37,8 @@ jobs:
 
       - name: Push to Amazon ECR
         run: |
-          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <your-ecr-url>
+          aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 041124310679.dkr.ecr.eu-west-2.amazonaws.com
           docker push your-ecr-repo/sentiment-api:latest
-
   deploy:
     needs: build-test-deploy
     runs-on: ubuntu-latest
