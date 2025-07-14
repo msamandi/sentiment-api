@@ -77,9 +77,3 @@ jobs:
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
-041124310679:
-  dkr:
-    ecr:
-      eu-west-2:
-        amazonaws:
-          com:
