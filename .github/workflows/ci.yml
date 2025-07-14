@@ -35,9 +35,6 @@ jobs:
       - name: Build Docker image
         run: docker build -t 041124310679.dkr.ecr.eu-west-2.amazonaws.com/sentiment-api:latest .
 
-      - name: Push Docker image
-        run: docker push samandim/sentiment-api:latest
-
       - name: Push to Amazon ECR
         run: |
           aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin <your-ecr-url>
