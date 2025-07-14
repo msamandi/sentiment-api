@@ -35,6 +35,9 @@ jobs:
       - name: Build Docker image
         run: docker build -t 041124310679.dkr.ecr.eu-west-2.amazonaws.com/sentiment-api:latest .
 
+      - name: Verify AWS credentials
+        run: aws sts get-caller-identity
+
       - name: Push to Amazon ECR
         run: |
           aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 041124310679.dkr.ecr.eu-west-2.amazonaws.com
