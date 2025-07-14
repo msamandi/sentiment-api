@@ -41,12 +41,17 @@ jobs:
 
       - name: Verify AWS credentials
         run: aws sts get-caller-identity
+        
+      - name: Ensure ECR repository exists
+        run: |
+          aws ecr describe-repositories --repository-names sentiment-api || \
+          aws ecr create-repository --repository-name sentiment-api
 
       - name: Push to Amazon ECR
         run: |
           aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 041124310679.dkr.ecr.eu-west-2.amazonaws.com
 
-          docker push 041124310679.dkr.ecr.eu-west-2.amazonaws.com/sentiment-api:latest
+          docker push 041124310679.dkr.ecr.aeu-west-2.amazonaws.com/sentiment-api:latest
   deploy:
     needs: build-test
     runs-on: ubuntu-latest
