@@ -77,3 +77,10 @@ jobs:
         run: |
           kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
+      - name: Check Health
+        run: |
+          set -e
+            kubectl rollout status deployment/sentiment-api
+            kubectl get pods
+            EXTERNAL_IP=$(kubectl get svc sentiment-api -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+            curl http://$EXTERNAL_IP/actuator/prometheus
