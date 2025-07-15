@@ -9,7 +9,7 @@ metadata:
     alb.ingress.kubernetes.io/target-type: ip
 spec:
   rules:
-    - host: sentiment.api.com
+    - host: sentiment.samandimed.com
       http:
         paths:
           - path: /
