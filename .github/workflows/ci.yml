@@ -84,4 +84,4 @@ jobs:
             kubectl get pods
             EXTERNAL_IP=$(kubectl get svc sentiment-api -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
             echo "EXTERNAL_IP: $EXTERNAL_IP"
-            curl http://$EXTERNAL_IP/actuator/prometheus
+            curl --retry 5 --retry-delay 10 http://$EXTERNAL_IP/actuator/prometheus

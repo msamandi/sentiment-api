@@ -1,12 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: sentiment-api
+  name: sentiment-api-service
+  labels:
+    app: sentiment-api
 spec:
-  type: LoadBalancer
   selector:
     app: sentiment-api
   ports:
     - protocol: TCP
       port: 80
       targetPort: 8080
+  type: NodePort
