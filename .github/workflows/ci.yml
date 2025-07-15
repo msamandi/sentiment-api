@@ -83,4 +83,4 @@ jobs:
             kubectl rollout status deployment/sentiment-api
             kubectl get pods
             EXTERNAL_IP=$(kubectl get svc sentiment-api -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
-            curl http://$EXTERNAL_IP/actuator/prometheus
+            curl http://$EXTEAL_IP/actuator/prometheus
